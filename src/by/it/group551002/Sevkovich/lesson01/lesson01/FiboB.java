@@ -22,9 +22,17 @@ public class FiboB {
         return System.currentTimeMillis() - startTime;
     }
 
+
     BigInteger fastB(Integer n) {
-        //здесь нужно реализовать вариант с временем O(n) и памятью O(n)
-        return BigInteger.valueOf(-1L);
+        if (n==1) return BigInteger.ONE;
+        BigInteger[] fibSequence = new BigInteger[n];
+        fibSequence[0] = BigInteger.ONE;
+        fibSequence[1] = BigInteger.ONE;
+        BigInteger a=BigInteger.ONE, b=BigInteger.ONE, temp;
+        for (int i = 2; i < n; i++){
+            fibSequence[i] = fibSequence[i-1].add(fibSequence[i-2]);
+        }
+        return fibSequence[n-1];
     }
 
 }

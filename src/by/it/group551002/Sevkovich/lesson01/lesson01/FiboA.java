@@ -19,7 +19,7 @@ public class FiboA {
 
         //вычисление чисел фибоначчи медленным методом (рекурсией)
         fibo = new FiboA();
-        n = 34;
+        n = 33;
         System.out.printf("slowA(%d)=%d \n\t time=%d \n\n", n, fibo.slowA(n), fibo.time());
     }
 
@@ -41,7 +41,7 @@ public class FiboA {
         return b;
     }
 
-    private static final HashMap<Integer, BigInteger> cache = new HashMap<Integer, BigInteger>();
+    private final HashMap<Integer, BigInteger> cache = new HashMap<>();
     BigInteger slowA(Integer n) {
         if (n==1 || n==2) return BigInteger.ONE;
         if (cache.containsKey(n)) return cache.get(n);

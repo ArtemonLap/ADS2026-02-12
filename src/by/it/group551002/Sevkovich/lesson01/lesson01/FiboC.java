@@ -12,8 +12,8 @@ public class FiboC {
 
     public static void main(String[] args) {
         FiboC fibo = new FiboC();
-        int n = 55555;
-        int m = 1000;
+        int n = 10;
+        int m = 10;
         System.out.printf("fasterC(%d)=%d \n\t time=%d \n\n", n, fibo.fasterC(n, m), fibo.time());
     }
 
@@ -22,9 +22,18 @@ public class FiboC {
     }
 
     long fasterC(long n, int m) {
-        //Интуитивно найти решение не всегда просто и
-        //возможно потребуется дополнительный поиск информации
-        return -1L;
+        // Юзаю теорему Пизано из инета
+        // Период Пизано всегда <= 6m
+        int[] seqPisano = new int[6*m+2];
+        seqPisano[0] = 0;
+        seqPisano[1] = 1;
+        long seqLength = 0;
+        for (int i = 2; i < seqPisano.length; i++){
+            seqPisano[i] = (seqPisano[i-1] + seqPisano[i-2]) % m;
+            if (seqPisano[i] == 1 && seqPisano[i-1] == 0) {seqLength = i-1; break;}
+        }
+
+        return seqPisano[(int)(n % seqLength)];
     }
 
 

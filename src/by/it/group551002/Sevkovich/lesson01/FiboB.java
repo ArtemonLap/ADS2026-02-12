@@ -1,4 +1,4 @@
-package by.it.group551002.Sevkovich.lesson01.lesson01;
+package by.it.group551002.Sevkovich.lesson01;
 
 import java.math.BigInteger;
 

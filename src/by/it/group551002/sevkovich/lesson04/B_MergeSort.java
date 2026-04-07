@@ -47,11 +47,45 @@ public class B_MergeSort {
 
         // тут ваше решение (реализуйте сортировку слиянием)
         // https://ru.wikipedia.org/wiki/Сортировка_слиянием
-
+        mergeSort(a, 0, n-1);
 
         //!!!!!!!!!!!!!!!!!!!!!!!!!     КОНЕЦ ЗАДАЧИ     !!!!!!!!!!!!!!!!!!!!!!!!!
         return a;
     }
 
+    private void merge(int[] arr, int l, int m, int r){
+        int L[] = new int[m-l+1];
+        int R[] = new int[r-m];
+        if (m + 1 - l >= 0) System.arraycopy(arr, l, L, 0, m + 1 - l);
+        if (r - m >= 0) System.arraycopy(arr, m+1, R, 0, r - m);
+        int i = 0, j = 0;
+        while (i < m-l+1 && j < r-m){
+            if (L[i] < R[j]){
+                arr[i+j+l] = L[i];
+                i++;
+            }
+            else{
+                arr[i+j+l] = R[j];
+                j++;
+            }
+        }
+        while (i < m-l+1){
+            arr[i+j+l] = L[i];
+            i++;
+        }
+        while (j<r-m){
+            arr[i+j+l] = R[j];
+            j++;
+        }
+    }
+    private void mergeSort(int[] arr, int l, int r){
+        if (l<r) {
+            int m = (r + l) / 2;
 
+            mergeSort(arr, l, m);
+            mergeSort(arr, m + 1, r);
+
+            merge(arr, l, m, r);
+        }
+    }
 }

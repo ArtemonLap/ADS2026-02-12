@@ -9,17 +9,17 @@
     /////////////////////////////////////////////////////////////////////////
 
                 toString()
-                size()
+                size()                  +
 
-                add(E element)
-                addFirst(E element)
-                addLast(E element)
+                add(E element)          +
+                addFirst(E element)     +
+                addLast(E element)      +
 
-                element()
-                getFirst()
-                getLast()
+                element()               +
+                getFirst()              +
+                getLast()               +
 
-                poll()
-                pollFirst()
-                pollLast()
+                poll()                  +
+                pollFirst()             +
+                pollLast()              +
 
